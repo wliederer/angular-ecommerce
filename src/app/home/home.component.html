@@ -1,1 +1,8 @@
-<p>home works!</p>
+<div>
+    <div>
+        <app-dashboard></app-dashboard>
+    </div>
+    <div>
+        <app-products *ngFor="let product of products" [product]="product"></app-products>
+    </div>
+</div>

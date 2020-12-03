@@ -7,7 +7,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
  
-  @Input() product:any;
+  @Input() 
+  product:any;
+  @Output()
+  productAdded = new EventEmitter();
+
+  addProductToCart(){
+    this.productAdded.emit();
+  }
   
 
   constructor() { }

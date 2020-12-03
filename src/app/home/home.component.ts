@@ -7,7 +7,12 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   @Input()
-  products!: any[];
+  products: any[]=[];
+  @Output()
+  productAdded = new EventEmitter();
+  addProductToCart(){
+    this.productAdded.emit();
+  }
 
   constructor() { }
 

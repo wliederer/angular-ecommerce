@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from './product';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,18 @@ export class AppComponent {
     {name:'skatewrench', price: 1.99},
     {name:'shirt', price: 19.99}
   ];
+
   
+  addProductToCart(){
+  //   const productExiistInCart = this.cartProductList.find(({name})=>name===product.name);
+  //   if(!productExiistInCart){
+  //     // this.cartProductList.push({...product, num:1});
+  //     console.log(this.cartProductList);
+  //     return;
+  //   }
+    console.log("nothin")
+  //   // productExiistInCart.num+=1;
+  }
 
   cartProductList=[];
 }

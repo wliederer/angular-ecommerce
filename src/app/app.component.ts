@@ -13,17 +13,16 @@ export class AppComponent {
     {name:'shirt', price: 19.99}
   ];
 
+
   
-  addProductToCart(){
-  //   const productExiistInCart = this.cartProductList.find(({name})=>name===product.name);
-  //   if(!productExiistInCart){
-  //     // this.cartProductList.push({...product, num:1});
-  //     console.log(this.cartProductList);
-  //     return;
-  //   }
-    console.log("nothin")
-  //   // productExiistInCart.num+=1;
+  addProductToCart(product:Product){
+    const productExistInCart = this.cartProductList.find(({name})=>name===product.name);
+    if(!productExistInCart){
+      this.cartProductList.push(product);
+      return;
+    }
+    console.log(productExistInCart);
   }
 
-  cartProductList=[];
+  cartProductList: any[]=[];
 }

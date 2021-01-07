@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ShoppingCart } from '../shoppingCart';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -6,9 +8,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+  @Input()
+  cart!: ShoppingCart;
   constructor() { }
-
+  
   ngOnInit(): void {
   }
 

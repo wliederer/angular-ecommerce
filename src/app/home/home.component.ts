@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Product } from '../product';
+import { ShoppingCart } from '../shoppingCart';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,9 @@ import { Product } from '../product';
 export class HomeComponent implements OnInit {
   @Input()
   products!: any[];
+  @Input()
+  cart!:ShoppingCart;
+
   @Output()
   productAdded = new EventEmitter();
   addProductToCart(product:Product){

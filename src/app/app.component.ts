@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Product } from './product';
+import { ShoppingCart } from './shoppingCart';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,8 @@ import { Product } from './product';
 export class AppComponent {
   title = 'angular-ecommerce';
   productList = [
-    {name:'skatewrench', price: 1.99},
-    {name:'shirt', price: 19.99}
+    {name:'skatewrench', price: 1.99, qty:1},
+    {name:'shirt', price: 19.99, qty:1}
   ];
 
 
@@ -19,10 +20,14 @@ export class AppComponent {
     const productExistInCart = this.cartProductList.find(({name})=>name===product.name);
     if(!productExistInCart){
       this.cartProductList.push(product);
-      return;
+    } else {
+      productExistInCart.qty++;
     }
-    console.log(productExistInCart);
+    let runningCount = 0;
+    this.cartProductList.forEach(x=>{runningCount= runningCount+ x.qty})
+    this.shoppingCart.count = runningCount;
   }
 
   cartProductList: any[]=[];
+  shoppingCart: ShoppingCart = { cart:this.cartProductList, count:0};
 }

@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductsComponent } from './products/products.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { UserDataService } from './userDataService';
 
 @NgModule({
   declarations: [
@@ -13,12 +15,13 @@ import { ProductsComponent } from './products/products.component';
     HomeComponent,
     DashboardComponent,
     ProductsComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [UserDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,13 @@
 <div class="container-fluid">
   <div>
+    <app-dashboard [cart]="shoppingCart"></app-dashboard>
+</div>
+  <div>
     <app-home (productAdded)="addProductToCart($event)" [products]="productList" [cart]="shoppingCart"></app-home>
   </div>
+  <div>
+    <router-outlet></router-outlet>
+</div>
 </div>
 
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from './product';
 import { ShoppingCart } from './shoppingCart';
+import { UserDataService } from './userDataService';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,9 @@ export class AppComponent {
     {name:'shirt', price: 19.99, qty:1}
   ];
 
+  constructor(private userData: UserDataService) {
+  }
+
 
   
   addProductToCart(product:Product){
@@ -26,6 +30,7 @@ export class AppComponent {
     let runningCount = 0;
     this.cartProductList.forEach(x=>{runningCount= runningCount+ x.qty})
     this.shoppingCart.count = runningCount;
+    this.userData.emitData(this.shoppingCart);
   }
 
   cartProductList: any[]=[];

@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div>
-    <app-dashboard [cart]="shoppingCart"></app-dashboard>
+    <app-dashboard></app-dashboard>
 </div>
   <div>
     <app-home (productAdded)="addProductToCart($event)" [products]="productList" [cart]="shoppingCart"></app-home>

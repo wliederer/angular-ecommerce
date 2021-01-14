@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductsComponent } from './products/products.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { UserDataService } from './userDataService';
+import { CartProductsComponent } from './cart-products/cart-products.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { UserDataService } from './userDataService';
     DashboardComponent,
     ProductsComponent,
     CheckoutComponent,
+    CartProductsComponent,
   ],
   imports: [
     BrowserModule,

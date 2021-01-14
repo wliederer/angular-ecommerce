@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ShoppingCart } from '../shoppingCart';
+import { UserDataService } from '../userDataService';
 
 
 @Component({
@@ -9,10 +10,19 @@ import { ShoppingCart } from '../shoppingCart';
 })
 export class DashboardComponent implements OnInit {
   @Input()
-  cart!: ShoppingCart;
-  constructor() { }
-  
-  ngOnInit(): void {
-  }
+  cart!: any;
+  showCart=false;
 
+  constructor(private userData: UserDataService) { }
+  
+  ngOnInit() {
+    this.userData.subscriber$.subscribe(data => {
+      this.cart = data;
+      if(this.cart.count>0){
+        this.showCart=true;
+      }else{
+        this.showCart=false;
+      }
+  })
+  }
 }

@@ -3,11 +3,21 @@ import { ShoppingCart } from './shoppingCart';
 import { Subject } from 'rxjs';
 
 @Injectable()
-export class UserDataService {  
-    observer = new Subject();
+export class UserDataService { 
+  
+  cart:ShoppingCart={cart:[],count:0};
+  
+  observer = new Subject();
   public subscriber$ = this.observer.asObservable();
 
   emitData(data:ShoppingCart) {
     this.observer.next(data);
+    this.cart.cart = data.cart;
+    this.cart.count = data.count;
   }
+
+  getCart(){
+    return this.cart;
+  }
+
 }

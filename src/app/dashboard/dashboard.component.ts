@@ -9,20 +9,20 @@ import { UserDataService } from '../userDataService';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  @Input()
-  cart!: any;
-  showCart=false;
 
+  cart:ShoppingCart= {cart:[], count:0, isEmpty:false};
+  showCart=true;
+  
   constructor(private userData: UserDataService) { }
   
   ngOnInit() {
     this.userData.subscriber$.subscribe(data => {
-      this.cart = data;
-      if(this.cart.count>0){
-        this.showCart=true;
-      }else{
-        this.showCart=false;
-      }
+    this.cart.count = data.count;
+      // if(this.cart.count>0){
+      //   this.showCart=true;
+      // }else{
+      //   this.showCart=false;
+      // }
   })
   }
 }

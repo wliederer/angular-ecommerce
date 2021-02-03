@@ -1,12 +1,17 @@
 <div>
     <h3>Checkout</h3>
-    <ng-container *ngIf="showCart">
+    <ng-container *ngIf="!cart.isEmpty">
         <div *ngFor="let x of cart.cart">
             product: {{x.name}} --- qty: {{x.qty}}
-            <!-- <button (click)="this.removeProduct(x)">-</button> -->
+            <button (click)="this.removeProduct(x)">-</button>
+        </div>
+        <div>
+            //////////////////////
+            Form coming soon
+            
         </div>
     </ng-container>
-    <div *ngIf="!showCart">
+    <div *ngIf="cart.isEmpty">
         Your cart is empty
     </div>
 </div>

@@ -5,9 +5,10 @@ import { Subject } from 'rxjs';
 @Injectable()
 export class UserDataService { 
   
-  cart:ShoppingCart={cart:[],count:0};
+  cart:ShoppingCart={cart:[],count:0,isEmpty:true};
   
-  observer = new Subject();
+  
+  observer = new Subject<ShoppingCart>();
   public subscriber$ = this.observer.asObservable();
 
   emitData(data:ShoppingCart) {
@@ -17,6 +18,7 @@ export class UserDataService {
   }
 
   getCart(){
+  
     return this.cart;
   }
 
